@@ -1,0 +1,4 @@
+Warning (10268): Verilog HDL information at mar14_7_44pm.v(146): always construct contains both blocking and non-blocking assignments File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 146
+Warning (10268): Verilog HDL information at mar14_7_44pm.v(195): always construct contains both blocking and non-blocking assignments File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 195
+Warning (10268): Verilog HDL information at mar14_7_44pm.v(267): always construct contains both blocking and non-blocking assignments File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 267
+Info (10281): Verilog HDL Declaration information at mar14_7_44pm.v(66): object "update" differs only in case from object "UPDATE" in the same scope File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 66

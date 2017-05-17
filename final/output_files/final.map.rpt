@@ -1,0 +1,1216 @@
+Analysis & Synthesis report for final
+Tue Mar 28 20:20:11 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Port Connectivity Checks: "RateDivider:rd10"
+ 13. Port Connectivity Checks: "start:go|snakeFSM:p1_keyIn"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Mar 28 20:20:11 2017       ;
+; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                      ; final                                       ;
+; Top-level Entity Name              ; final                                       ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 19,144                                      ;
+;     Total combinational functions  ; 19,143                                      ;
+;     Dedicated logic registers      ; 4,430                                       ;
+; Total registers                    ; 4430                                        ;
+; Total pins                         ; 76                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; final              ; final              ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                 ;
++----------------------------------+-----------------+------------------------+------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                   ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------+---------+
+; mar14_7_44pm.v                   ; yes             ; User Verilog HDL File  ; /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                    ;
++---------------------------------------------+----------------------------------+
+; Resource                                    ; Usage                            ;
++---------------------------------------------+----------------------------------+
+; Estimated Total logic elements              ; 19,144                           ;
+;                                             ;                                  ;
+; Total combinational functions               ; 19143                            ;
+; Logic element usage by number of LUT inputs ;                                  ;
+;     -- 4 input functions                    ; 979                              ;
+;     -- 3 input functions                    ; 13135                            ;
+;     -- <=2 input functions                  ; 5029                             ;
+;                                             ;                                  ;
+; Logic elements by mode                      ;                                  ;
+;     -- normal mode                          ; 7336                             ;
+;     -- arithmetic mode                      ; 11807                            ;
+;                                             ;                                  ;
+; Total registers                             ; 4430                             ;
+;     -- Dedicated logic registers            ; 4430                             ;
+;     -- I/O registers                        ; 0                                ;
+;                                             ;                                  ;
+; I/O pins                                    ; 76                               ;
+;                                             ;                                  ;
+; Embedded Multiplier 9-bit elements          ; 0                                ;
+;                                             ;                                  ;
+; Maximum fan-out node                        ; start:go|updateClk:UPDATE|update ;
+; Maximum fan-out                             ; 4319                             ;
+; Total fan-out                               ; 65770                            ;
+; Average fan-out                             ; 2.77                             ;
++---------------------------------------------+----------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                ; Entity Name    ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+----------------+--------------+
+; |final                     ; 19143 (11)        ; 4430 (1)     ; 0           ; 0            ; 0       ; 0         ; 76   ; 0            ; |final                             ; final          ; work         ;
+;    |DisplayCounter:dc0|    ; 8 (8)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|DisplayCounter:dc0          ; DisplayCounter ; work         ;
+;    |RateDivider:rd10|      ; 56 (56)           ; 28 (28)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|RateDivider:rd10            ; RateDivider    ; work         ;
+;    |hex_decoder:hx0|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|hex_decoder:hx0             ; hex_decoder    ; work         ;
+;    |hex_decoder:hx1|       ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|hex_decoder:hx1             ; hex_decoder    ; work         ;
+;    |start:go|              ; 19054 (18959)     ; 4393 (4337)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go                    ; start          ; work         ;
+;       |VGA_gen:gen|        ; 46 (46)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go|VGA_gen:gen        ; VGA_gen        ; work         ;
+;       |clk_reduce:reduce1| ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go|clk_reduce:reduce1 ; clk_reduce     ; work         ;
+;       |snakeFSM:keyIn|     ; 5 (5)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go|snakeFSM:keyIn     ; snakeFSM       ; work         ;
+;       |snakeFSM:p1_keyIn|  ; 5 (5)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go|snakeFSM:p1_keyIn  ; snakeFSM       ; work         ;
+;       |updateClk:UPDATE|   ; 38 (38)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |final|start:go|updateClk:UPDATE   ; updateClk      ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                         ;
++-----------------------------------------+--------------------------------------------------+
+; Register name                           ; Reason for Removal                               ;
++-----------------------------------------+--------------------------------------------------+
+; start:go|p2_snakeX[0][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeY[0][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeY[0][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[0][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|snakeFSM:keyIn|movement[0]     ; Stuck at GND due to stuck port data_in           ;
+; start:go|snakeFSM:p1_keyIn|movement[0]  ; Stuck at GND due to stuck port data_in           ;
+; start:go|VGA_R[2,3,6]                   ; Merged with start:go|VGA_R[7]                    ;
+; start:go|VGA_R[0,1,4]                   ; Merged with start:go|VGA_R[5]                    ;
+; start:go|VGA_B[5]                       ; Merged with start:go|VGA_G[7]                    ;
+; start:go|VGA_G[5]                       ; Merged with start:go|VGA_G[7]                    ;
+; start:go|VGA_B[0,1]                     ; Merged with start:go|VGA_G[7]                    ;
+; start:go|VGA_G[0,3]                     ; Merged with start:go|VGA_G[7]                    ;
+; start:go|VGA_B[4]                       ; Merged with start:go|VGA_G[7]                    ;
+; start:go|VGA_G[1,2,4,6]                 ; Merged with start:go|VGA_G[7]                    ;
+; start:go|VGA_B[2,3,6]                   ; Merged with start:go|VGA_B[7]                    ;
+; start:go|p1_snakeY[6][0]                ; Merged with start:go|p1_snakeX[6][0]             ;
+; start:go|p1_snakeY[5][0]                ; Merged with start:go|p1_snakeX[5][0]             ;
+; start:go|p1_snakeY[4][0]                ; Merged with start:go|p1_snakeX[4][0]             ;
+; start:go|p1_snakeY[3][0]                ; Merged with start:go|p1_snakeX[3][0]             ;
+; start:go|p1_snakeY[2][0]                ; Merged with start:go|p1_snakeX[2][0]             ;
+; start:go|p1_snakeY[1][0]                ; Merged with start:go|p1_snakeX[1][0]             ;
+; start:go|p2_size[6]                     ; Merged with start:go|p1_size[6]                  ;
+; start:go|p2_size[5]                     ; Merged with start:go|p1_size[5]                  ;
+; start:go|p2_size[4]                     ; Merged with start:go|p1_size[4]                  ;
+; start:go|p2_size[3]                     ; Merged with start:go|p1_size[3]                  ;
+; start:go|p2_size[2]                     ; Merged with start:go|p1_size[2]                  ;
+; start:go|p2_size[1]                     ; Merged with start:go|p1_size[1]                  ;
+; start:go|p2_size[0]                     ; Merged with start:go|p1_size[0]                  ;
+; start:go|p2_snakeY[6][0]                ; Merged with start:go|p2_snakeX[6][0]             ;
+; start:go|p2_snakeY[5][0]                ; Merged with start:go|p2_snakeX[5][0]             ;
+; start:go|p2_snakeY[4][0]                ; Merged with start:go|p2_snakeX[4][0]             ;
+; start:go|p2_snakeY[3][0]                ; Merged with start:go|p2_snakeX[3][0]             ;
+; start:go|p2_snakeY[2][0]                ; Merged with start:go|p2_snakeX[2][0]             ;
+; start:go|p2_snakeY[1][0]                ; Merged with start:go|p2_snakeX[1][0]             ;
+; start:go|p1_snakeY[7][0]                ; Merged with start:go|p1_snakeX[7][0]             ;
+; start:go|p2_snakeY[7][0]                ; Merged with start:go|p2_snakeX[7][0]             ;
+; start:go|p1_snakeY[8][0]                ; Merged with start:go|p1_snakeX[8][0]             ;
+; start:go|p2_snakeY[8][0]                ; Merged with start:go|p2_snakeX[8][0]             ;
+; start:go|p1_snakeY[9][0]                ; Merged with start:go|p1_snakeX[9][0]             ;
+; start:go|p2_snakeY[9][0]                ; Merged with start:go|p2_snakeX[9][0]             ;
+; start:go|p1_snakeY[10][0]               ; Merged with start:go|p1_snakeX[10][0]            ;
+; start:go|p2_snakeY[10][0]               ; Merged with start:go|p2_snakeX[10][0]            ;
+; start:go|p1_snakeY[11][0]               ; Merged with start:go|p1_snakeX[11][0]            ;
+; start:go|p2_snakeY[11][0]               ; Merged with start:go|p2_snakeX[11][0]            ;
+; start:go|p1_snakeY[12][0]               ; Merged with start:go|p1_snakeX[12][0]            ;
+; start:go|p2_snakeY[12][0]               ; Merged with start:go|p2_snakeX[12][0]            ;
+; start:go|p1_snakeY[13][0]               ; Merged with start:go|p1_snakeX[13][0]            ;
+; start:go|p2_snakeY[13][0]               ; Merged with start:go|p2_snakeX[13][0]            ;
+; start:go|p1_snakeY[14][0]               ; Merged with start:go|p1_snakeX[14][0]            ;
+; start:go|p2_snakeY[14][0]               ; Merged with start:go|p2_snakeX[14][0]            ;
+; start:go|p1_snakeY[15][0]               ; Merged with start:go|p1_snakeX[15][0]            ;
+; start:go|p2_snakeY[15][0]               ; Merged with start:go|p2_snakeX[15][0]            ;
+; start:go|p1_snakeY[16][0]               ; Merged with start:go|p1_snakeX[16][0]            ;
+; start:go|p2_snakeY[16][0]               ; Merged with start:go|p2_snakeX[16][0]            ;
+; start:go|p1_snakeY[17][0]               ; Merged with start:go|p1_snakeX[17][0]            ;
+; start:go|p2_snakeY[17][0]               ; Merged with start:go|p2_snakeX[17][0]            ;
+; start:go|p1_snakeY[18][0]               ; Merged with start:go|p1_snakeX[18][0]            ;
+; start:go|p2_snakeY[18][0]               ; Merged with start:go|p2_snakeX[18][0]            ;
+; start:go|p1_snakeY[19][0]               ; Merged with start:go|p1_snakeX[19][0]            ;
+; start:go|p2_snakeY[19][0]               ; Merged with start:go|p2_snakeX[19][0]            ;
+; start:go|p1_snakeY[20][0]               ; Merged with start:go|p1_snakeX[20][0]            ;
+; start:go|p2_snakeY[20][0]               ; Merged with start:go|p2_snakeX[20][0]            ;
+; start:go|p1_snakeY[21][0]               ; Merged with start:go|p1_snakeX[21][0]            ;
+; start:go|p2_snakeY[21][0]               ; Merged with start:go|p2_snakeX[21][0]            ;
+; start:go|p1_snakeY[22][0]               ; Merged with start:go|p1_snakeX[22][0]            ;
+; start:go|p2_snakeY[22][0]               ; Merged with start:go|p2_snakeX[22][0]            ;
+; start:go|p1_snakeY[23][0]               ; Merged with start:go|p1_snakeX[23][0]            ;
+; start:go|p2_snakeY[23][0]               ; Merged with start:go|p2_snakeX[23][0]            ;
+; start:go|p1_snakeY[24][0]               ; Merged with start:go|p1_snakeX[24][0]            ;
+; start:go|p2_snakeY[24][0]               ; Merged with start:go|p2_snakeX[24][0]            ;
+; start:go|p1_snakeY[25][0]               ; Merged with start:go|p1_snakeX[25][0]            ;
+; start:go|p2_snakeY[25][0]               ; Merged with start:go|p2_snakeX[25][0]            ;
+; start:go|p1_snakeY[26][0]               ; Merged with start:go|p1_snakeX[26][0]            ;
+; start:go|p2_snakeY[26][0]               ; Merged with start:go|p2_snakeX[26][0]            ;
+; start:go|p1_snakeY[27][0]               ; Merged with start:go|p1_snakeX[27][0]            ;
+; start:go|p2_snakeY[27][0]               ; Merged with start:go|p2_snakeX[27][0]            ;
+; start:go|p1_snakeY[28][0]               ; Merged with start:go|p1_snakeX[28][0]            ;
+; start:go|p2_snakeY[28][0]               ; Merged with start:go|p2_snakeX[28][0]            ;
+; start:go|p1_snakeY[29][0]               ; Merged with start:go|p1_snakeX[29][0]            ;
+; start:go|p2_snakeY[29][0]               ; Merged with start:go|p2_snakeX[29][0]            ;
+; start:go|p1_snakeY[30][0]               ; Merged with start:go|p1_snakeX[30][0]            ;
+; start:go|p2_snakeY[30][0]               ; Merged with start:go|p2_snakeX[30][0]            ;
+; start:go|p1_snakeY[31][0]               ; Merged with start:go|p1_snakeX[31][0]            ;
+; start:go|p2_snakeY[31][0]               ; Merged with start:go|p2_snakeX[31][0]            ;
+; start:go|p1_snakeY[32][0]               ; Merged with start:go|p1_snakeX[32][0]            ;
+; start:go|p2_snakeY[32][0]               ; Merged with start:go|p2_snakeX[32][0]            ;
+; start:go|p1_snakeY[33][0]               ; Merged with start:go|p1_snakeX[33][0]            ;
+; start:go|p2_snakeY[33][0]               ; Merged with start:go|p2_snakeX[33][0]            ;
+; start:go|p1_snakeY[34][0]               ; Merged with start:go|p1_snakeX[34][0]            ;
+; start:go|p2_snakeY[34][0]               ; Merged with start:go|p2_snakeX[34][0]            ;
+; start:go|p1_snakeY[35][0]               ; Merged with start:go|p1_snakeX[35][0]            ;
+; start:go|p2_snakeY[35][0]               ; Merged with start:go|p2_snakeX[35][0]            ;
+; start:go|p1_snakeY[36][0]               ; Merged with start:go|p1_snakeX[36][0]            ;
+; start:go|p2_snakeY[36][0]               ; Merged with start:go|p2_snakeX[36][0]            ;
+; start:go|p1_snakeY[37][0]               ; Merged with start:go|p1_snakeX[37][0]            ;
+; start:go|p2_snakeY[37][0]               ; Merged with start:go|p2_snakeX[37][0]            ;
+; start:go|p1_snakeY[38][0]               ; Merged with start:go|p1_snakeX[38][0]            ;
+; start:go|p2_snakeY[38][0]               ; Merged with start:go|p2_snakeX[38][0]            ;
+; start:go|p1_snakeY[39][0]               ; Merged with start:go|p1_snakeX[39][0]            ;
+; start:go|p2_snakeY[39][0]               ; Merged with start:go|p2_snakeX[39][0]            ;
+; start:go|p1_snakeY[40][0]               ; Merged with start:go|p1_snakeX[40][0]            ;
+; start:go|p2_snakeY[40][0]               ; Merged with start:go|p2_snakeX[40][0]            ;
+; start:go|p1_snakeY[41][0]               ; Merged with start:go|p1_snakeX[41][0]            ;
+; start:go|p2_snakeY[41][0]               ; Merged with start:go|p2_snakeX[41][0]            ;
+; start:go|p1_snakeY[42][0]               ; Merged with start:go|p1_snakeX[42][0]            ;
+; start:go|p2_snakeY[42][0]               ; Merged with start:go|p2_snakeX[42][0]            ;
+; start:go|p1_snakeY[43][0]               ; Merged with start:go|p1_snakeX[43][0]            ;
+; start:go|p2_snakeY[43][0]               ; Merged with start:go|p2_snakeX[43][0]            ;
+; start:go|p1_snakeY[44][0]               ; Merged with start:go|p1_snakeX[44][0]            ;
+; start:go|p2_snakeY[44][0]               ; Merged with start:go|p2_snakeX[44][0]            ;
+; start:go|p1_snakeY[45][0]               ; Merged with start:go|p1_snakeX[45][0]            ;
+; start:go|p2_snakeY[45][0]               ; Merged with start:go|p2_snakeX[45][0]            ;
+; start:go|p1_snakeY[46][0]               ; Merged with start:go|p1_snakeX[46][0]            ;
+; start:go|p2_snakeY[46][0]               ; Merged with start:go|p2_snakeX[46][0]            ;
+; start:go|p1_snakeY[47][0]               ; Merged with start:go|p1_snakeX[47][0]            ;
+; start:go|p2_snakeY[47][0]               ; Merged with start:go|p2_snakeX[47][0]            ;
+; start:go|p1_snakeY[48][0]               ; Merged with start:go|p1_snakeX[48][0]            ;
+; start:go|p2_snakeY[48][0]               ; Merged with start:go|p2_snakeX[48][0]            ;
+; start:go|p1_snakeY[49][0]               ; Merged with start:go|p1_snakeX[49][0]            ;
+; start:go|p2_snakeY[49][0]               ; Merged with start:go|p2_snakeX[49][0]            ;
+; start:go|p1_snakeY[50][0]               ; Merged with start:go|p1_snakeX[50][0]            ;
+; start:go|p2_snakeY[50][0]               ; Merged with start:go|p2_snakeX[50][0]            ;
+; start:go|p1_snakeY[51][0]               ; Merged with start:go|p1_snakeX[51][0]            ;
+; start:go|p2_snakeY[51][0]               ; Merged with start:go|p2_snakeX[51][0]            ;
+; start:go|p1_snakeY[52][0]               ; Merged with start:go|p1_snakeX[52][0]            ;
+; start:go|p2_snakeY[52][0]               ; Merged with start:go|p2_snakeX[52][0]            ;
+; start:go|p1_snakeY[53][0]               ; Merged with start:go|p1_snakeX[53][0]            ;
+; start:go|p2_snakeY[53][0]               ; Merged with start:go|p2_snakeX[53][0]            ;
+; start:go|p1_snakeY[54][0]               ; Merged with start:go|p1_snakeX[54][0]            ;
+; start:go|p2_snakeY[54][0]               ; Merged with start:go|p2_snakeX[54][0]            ;
+; start:go|p1_snakeY[55][0]               ; Merged with start:go|p1_snakeX[55][0]            ;
+; start:go|p2_snakeY[55][0]               ; Merged with start:go|p2_snakeX[55][0]            ;
+; start:go|p1_snakeY[56][0]               ; Merged with start:go|p1_snakeX[56][0]            ;
+; start:go|p2_snakeY[56][0]               ; Merged with start:go|p2_snakeX[56][0]            ;
+; start:go|p1_snakeY[57][0]               ; Merged with start:go|p1_snakeX[57][0]            ;
+; start:go|p2_snakeY[57][0]               ; Merged with start:go|p2_snakeX[57][0]            ;
+; start:go|p1_snakeY[58][0]               ; Merged with start:go|p1_snakeX[58][0]            ;
+; start:go|p2_snakeY[58][0]               ; Merged with start:go|p2_snakeX[58][0]            ;
+; start:go|p1_snakeY[59][0]               ; Merged with start:go|p1_snakeX[59][0]            ;
+; start:go|p2_snakeY[59][0]               ; Merged with start:go|p2_snakeX[59][0]            ;
+; start:go|p1_snakeY[60][0]               ; Merged with start:go|p1_snakeX[60][0]            ;
+; start:go|p2_snakeY[60][0]               ; Merged with start:go|p2_snakeX[60][0]            ;
+; start:go|p1_snakeY[61][0]               ; Merged with start:go|p1_snakeX[61][0]            ;
+; start:go|p2_snakeY[61][0]               ; Merged with start:go|p2_snakeX[61][0]            ;
+; start:go|p1_snakeY[62][0]               ; Merged with start:go|p1_snakeX[62][0]            ;
+; start:go|p2_snakeY[62][0]               ; Merged with start:go|p2_snakeX[62][0]            ;
+; start:go|p1_snakeY[63][0]               ; Merged with start:go|p1_snakeX[63][0]            ;
+; start:go|p2_snakeY[63][0]               ; Merged with start:go|p2_snakeX[63][0]            ;
+; start:go|p1_snakeY[64][0]               ; Merged with start:go|p1_snakeX[64][0]            ;
+; start:go|p2_snakeY[64][0]               ; Merged with start:go|p2_snakeX[64][0]            ;
+; start:go|p1_snakeY[65][0]               ; Merged with start:go|p1_snakeX[65][0]            ;
+; start:go|p2_snakeY[65][0]               ; Merged with start:go|p2_snakeX[65][0]            ;
+; start:go|p1_snakeY[66][0]               ; Merged with start:go|p1_snakeX[66][0]            ;
+; start:go|p2_snakeY[66][0]               ; Merged with start:go|p2_snakeX[66][0]            ;
+; start:go|p1_snakeY[67][0]               ; Merged with start:go|p1_snakeX[67][0]            ;
+; start:go|p2_snakeY[67][0]               ; Merged with start:go|p2_snakeX[67][0]            ;
+; start:go|p1_snakeY[68][0]               ; Merged with start:go|p1_snakeX[68][0]            ;
+; start:go|p2_snakeY[68][0]               ; Merged with start:go|p2_snakeX[68][0]            ;
+; start:go|p1_snakeY[69][0]               ; Merged with start:go|p1_snakeX[69][0]            ;
+; start:go|p2_snakeY[69][0]               ; Merged with start:go|p2_snakeX[69][0]            ;
+; start:go|p1_snakeY[70][0]               ; Merged with start:go|p1_snakeX[70][0]            ;
+; start:go|p2_snakeY[70][0]               ; Merged with start:go|p2_snakeX[70][0]            ;
+; start:go|p1_snakeY[71][0]               ; Merged with start:go|p1_snakeX[71][0]            ;
+; start:go|p2_snakeY[71][0]               ; Merged with start:go|p2_snakeX[71][0]            ;
+; start:go|p1_snakeY[72][0]               ; Merged with start:go|p1_snakeX[72][0]            ;
+; start:go|p2_snakeY[72][0]               ; Merged with start:go|p2_snakeX[72][0]            ;
+; start:go|p1_snakeY[73][0]               ; Merged with start:go|p1_snakeX[73][0]            ;
+; start:go|p2_snakeY[73][0]               ; Merged with start:go|p2_snakeX[73][0]            ;
+; start:go|p1_snakeY[74][0]               ; Merged with start:go|p1_snakeX[74][0]            ;
+; start:go|p2_snakeY[74][0]               ; Merged with start:go|p2_snakeX[74][0]            ;
+; start:go|p1_snakeY[75][0]               ; Merged with start:go|p1_snakeX[75][0]            ;
+; start:go|p2_snakeY[75][0]               ; Merged with start:go|p2_snakeX[75][0]            ;
+; start:go|p1_snakeY[76][0]               ; Merged with start:go|p1_snakeX[76][0]            ;
+; start:go|p2_snakeY[76][0]               ; Merged with start:go|p2_snakeX[76][0]            ;
+; start:go|p1_snakeY[77][0]               ; Merged with start:go|p1_snakeX[77][0]            ;
+; start:go|p2_snakeY[77][0]               ; Merged with start:go|p2_snakeX[77][0]            ;
+; start:go|p1_snakeY[78][0]               ; Merged with start:go|p1_snakeX[78][0]            ;
+; start:go|p2_snakeY[78][0]               ; Merged with start:go|p2_snakeX[78][0]            ;
+; start:go|p1_snakeY[79][0]               ; Merged with start:go|p1_snakeX[79][0]            ;
+; start:go|p2_snakeY[79][0]               ; Merged with start:go|p2_snakeX[79][0]            ;
+; start:go|p1_snakeY[80][0]               ; Merged with start:go|p1_snakeX[80][0]            ;
+; start:go|p2_snakeY[80][0]               ; Merged with start:go|p2_snakeX[80][0]            ;
+; start:go|p1_snakeY[81][0]               ; Merged with start:go|p1_snakeX[81][0]            ;
+; start:go|p2_snakeY[81][0]               ; Merged with start:go|p2_snakeX[81][0]            ;
+; start:go|p1_snakeY[82][0]               ; Merged with start:go|p1_snakeX[82][0]            ;
+; start:go|p2_snakeY[82][0]               ; Merged with start:go|p2_snakeX[82][0]            ;
+; start:go|p1_snakeY[83][0]               ; Merged with start:go|p1_snakeX[83][0]            ;
+; start:go|p2_snakeY[83][0]               ; Merged with start:go|p2_snakeX[83][0]            ;
+; start:go|p1_snakeY[84][0]               ; Merged with start:go|p1_snakeX[84][0]            ;
+; start:go|p2_snakeY[84][0]               ; Merged with start:go|p2_snakeX[84][0]            ;
+; start:go|p1_snakeY[85][0]               ; Merged with start:go|p1_snakeX[85][0]            ;
+; start:go|p2_snakeY[85][0]               ; Merged with start:go|p2_snakeX[85][0]            ;
+; start:go|p1_snakeY[86][0]               ; Merged with start:go|p1_snakeX[86][0]            ;
+; start:go|p2_snakeY[86][0]               ; Merged with start:go|p2_snakeX[86][0]            ;
+; start:go|p1_snakeY[87][0]               ; Merged with start:go|p1_snakeX[87][0]            ;
+; start:go|p2_snakeY[87][0]               ; Merged with start:go|p2_snakeX[87][0]            ;
+; start:go|p1_snakeY[88][0]               ; Merged with start:go|p1_snakeX[88][0]            ;
+; start:go|p2_snakeY[88][0]               ; Merged with start:go|p2_snakeX[88][0]            ;
+; start:go|p1_snakeY[89][0]               ; Merged with start:go|p1_snakeX[89][0]            ;
+; start:go|p2_snakeY[89][0]               ; Merged with start:go|p2_snakeX[89][0]            ;
+; start:go|p1_snakeY[90][0]               ; Merged with start:go|p1_snakeX[90][0]            ;
+; start:go|p2_snakeY[90][0]               ; Merged with start:go|p2_snakeX[90][0]            ;
+; start:go|p1_snakeY[91][0]               ; Merged with start:go|p1_snakeX[91][0]            ;
+; start:go|p2_snakeY[91][0]               ; Merged with start:go|p2_snakeX[91][0]            ;
+; start:go|p1_snakeY[92][0]               ; Merged with start:go|p1_snakeX[92][0]            ;
+; start:go|p2_snakeY[92][0]               ; Merged with start:go|p2_snakeX[92][0]            ;
+; start:go|p1_snakeY[93][0]               ; Merged with start:go|p1_snakeX[93][0]            ;
+; start:go|p2_snakeY[93][0]               ; Merged with start:go|p2_snakeX[93][0]            ;
+; start:go|p1_snakeY[94][0]               ; Merged with start:go|p1_snakeX[94][0]            ;
+; start:go|p2_snakeY[94][0]               ; Merged with start:go|p2_snakeX[94][0]            ;
+; start:go|p1_snakeY[95][0]               ; Merged with start:go|p1_snakeX[95][0]            ;
+; start:go|p2_snakeY[95][0]               ; Merged with start:go|p2_snakeX[95][0]            ;
+; start:go|p1_snakeY[96][0]               ; Merged with start:go|p1_snakeX[96][0]            ;
+; start:go|p2_snakeY[96][0]               ; Merged with start:go|p2_snakeX[96][0]            ;
+; start:go|p1_snakeY[97][0]               ; Merged with start:go|p1_snakeX[97][0]            ;
+; start:go|p2_snakeY[97][0]               ; Merged with start:go|p2_snakeX[97][0]            ;
+; start:go|p1_snakeY[98][0]               ; Merged with start:go|p1_snakeX[98][0]            ;
+; start:go|p2_snakeY[98][0]               ; Merged with start:go|p2_snakeX[98][0]            ;
+; start:go|p1_snakeY[99][0]               ; Merged with start:go|p1_snakeX[99][0]            ;
+; start:go|p2_snakeY[99][0]               ; Merged with start:go|p2_snakeX[99][0]            ;
+; start:go|p1_snakeY[100][0]              ; Merged with start:go|p1_snakeX[100][0]           ;
+; start:go|p2_snakeY[100][0]              ; Merged with start:go|p2_snakeX[100][0]           ;
+; start:go|p1_snakeY[101][0]              ; Merged with start:go|p1_snakeX[101][0]           ;
+; start:go|p2_snakeY[101][0]              ; Merged with start:go|p2_snakeX[101][0]           ;
+; start:go|p1_snakeY[102][0]              ; Merged with start:go|p1_snakeX[102][0]           ;
+; start:go|p2_snakeY[102][0]              ; Merged with start:go|p2_snakeX[102][0]           ;
+; start:go|p1_snakeY[103][0]              ; Merged with start:go|p1_snakeX[103][0]           ;
+; start:go|p2_snakeY[103][0]              ; Merged with start:go|p2_snakeX[103][0]           ;
+; start:go|p1_snakeY[104][0]              ; Merged with start:go|p1_snakeX[104][0]           ;
+; start:go|p2_snakeY[104][0]              ; Merged with start:go|p2_snakeX[104][0]           ;
+; start:go|p1_snakeY[105][0]              ; Merged with start:go|p1_snakeX[105][0]           ;
+; start:go|p2_snakeY[105][0]              ; Merged with start:go|p2_snakeX[105][0]           ;
+; start:go|p1_snakeY[106][0]              ; Merged with start:go|p1_snakeX[106][0]           ;
+; start:go|p2_snakeY[106][0]              ; Merged with start:go|p2_snakeX[106][0]           ;
+; start:go|p1_snakeY[107][0]              ; Merged with start:go|p1_snakeX[107][0]           ;
+; start:go|p2_snakeY[107][0]              ; Merged with start:go|p2_snakeX[107][0]           ;
+; start:go|p1_snakeY[108][0]              ; Merged with start:go|p1_snakeX[108][0]           ;
+; start:go|p2_snakeY[108][0]              ; Merged with start:go|p2_snakeX[108][0]           ;
+; start:go|p1_snakeY[109][0]              ; Merged with start:go|p1_snakeX[109][0]           ;
+; start:go|p2_snakeY[109][0]              ; Merged with start:go|p2_snakeX[109][0]           ;
+; start:go|p1_snakeY[110][0]              ; Merged with start:go|p1_snakeX[110][0]           ;
+; start:go|p2_snakeY[110][0]              ; Merged with start:go|p2_snakeX[110][0]           ;
+; start:go|p1_snakeY[111][0]              ; Merged with start:go|p1_snakeX[111][0]           ;
+; start:go|p2_snakeY[111][0]              ; Merged with start:go|p2_snakeX[111][0]           ;
+; start:go|p1_snakeY[112][0]              ; Merged with start:go|p1_snakeX[112][0]           ;
+; start:go|p2_snakeY[112][0]              ; Merged with start:go|p2_snakeX[112][0]           ;
+; start:go|p1_snakeY[113][0]              ; Merged with start:go|p1_snakeX[113][0]           ;
+; start:go|p2_snakeY[113][0]              ; Merged with start:go|p2_snakeX[113][0]           ;
+; start:go|p1_snakeY[114][0]              ; Merged with start:go|p1_snakeX[114][0]           ;
+; start:go|p2_snakeY[114][0]              ; Merged with start:go|p2_snakeX[114][0]           ;
+; start:go|p1_snakeY[115][0]              ; Merged with start:go|p1_snakeX[115][0]           ;
+; start:go|p2_snakeY[115][0]              ; Merged with start:go|p2_snakeX[115][0]           ;
+; start:go|p1_snakeY[116][0]              ; Merged with start:go|p1_snakeX[116][0]           ;
+; start:go|p2_snakeY[116][0]              ; Merged with start:go|p2_snakeX[116][0]           ;
+; start:go|p1_snakeY[117][0]              ; Merged with start:go|p1_snakeX[117][0]           ;
+; start:go|p2_snakeY[117][0]              ; Merged with start:go|p2_snakeX[117][0]           ;
+; start:go|p1_snakeY[118][0]              ; Merged with start:go|p1_snakeX[118][0]           ;
+; start:go|p2_snakeY[118][0]              ; Merged with start:go|p2_snakeX[118][0]           ;
+; start:go|p1_snakeY[119][0]              ; Merged with start:go|p1_snakeX[119][0]           ;
+; start:go|p2_snakeY[119][0]              ; Merged with start:go|p2_snakeX[119][0]           ;
+; start:go|p1_snakeY[120][0]              ; Merged with start:go|p1_snakeX[120][0]           ;
+; start:go|p2_snakeY[120][0]              ; Merged with start:go|p2_snakeX[120][0]           ;
+; start:go|p1_snakeY[121][0]              ; Merged with start:go|p1_snakeX[121][0]           ;
+; start:go|p2_snakeY[121][0]              ; Merged with start:go|p2_snakeX[121][0]           ;
+; start:go|p1_snakeY[122][0]              ; Merged with start:go|p1_snakeX[122][0]           ;
+; start:go|p2_snakeY[122][0]              ; Merged with start:go|p2_snakeX[122][0]           ;
+; start:go|p1_snakeY[123][0]              ; Merged with start:go|p1_snakeX[123][0]           ;
+; start:go|p2_snakeY[123][0]              ; Merged with start:go|p2_snakeX[123][0]           ;
+; start:go|p1_snakeY[124][0]              ; Merged with start:go|p1_snakeX[124][0]           ;
+; start:go|p2_snakeY[124][0]              ; Merged with start:go|p2_snakeX[124][0]           ;
+; start:go|p1_snakeY[125][0]              ; Merged with start:go|p1_snakeX[125][0]           ;
+; start:go|p2_snakeY[125][0]              ; Merged with start:go|p2_snakeX[125][0]           ;
+; start:go|p1_snakeY[126][0]              ; Merged with start:go|p1_snakeX[126][0]           ;
+; start:go|p2_snakeY[126][0]              ; Merged with start:go|p2_snakeX[126][0]           ;
+; start:go|p1_snakeY[127][0]              ; Merged with start:go|p1_snakeX[127][0]           ;
+; start:go|p2_snakeY[127][0]              ; Merged with start:go|p2_snakeX[127][0]           ;
+; start:go|p2_snakeX[1][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[1][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[2][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[2][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[3][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[3][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[4][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[4][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[5][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[5][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[6][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[6][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[7][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[7][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[8][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[8][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[9][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[9][0]                ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[10][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[10][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[11][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[11][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[12][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[12][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[13][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[13][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[14][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[14][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[15][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[15][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[16][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[16][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[17][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[17][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[18][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[18][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[19][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[19][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[20][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[20][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[21][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[21][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[22][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[22][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[23][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[23][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[24][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[24][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[25][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[25][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[26][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[26][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[27][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[27][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[28][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[28][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[29][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[29][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[30][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[30][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[31][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[31][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[32][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[32][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[33][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[33][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[34][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[34][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[35][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[35][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[36][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[36][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[37][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[37][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[38][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[38][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[39][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[39][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[40][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[40][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[41][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[41][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[42][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[42][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[43][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[43][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[44][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[44][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[45][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[45][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[46][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[46][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[47][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[47][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[48][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[48][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[49][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[49][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[50][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[50][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[51][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[51][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[52][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[52][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[53][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[53][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[54][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[54][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[55][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[55][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[56][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[56][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[57][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[57][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[58][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[58][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[59][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[59][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[60][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[60][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[61][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[61][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[62][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[62][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[63][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[63][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[64][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[64][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[65][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[65][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[66][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[66][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[67][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[67][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[68][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[68][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[69][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[69][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[70][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[70][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[71][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[71][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[72][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[72][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[73][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[73][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[74][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[74][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[75][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[75][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[76][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[76][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[77][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[77][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[78][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[78][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[79][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[79][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[80][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[80][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[81][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[81][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[82][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[82][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[83][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[83][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[84][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[84][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[85][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[85][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[86][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[86][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[87][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[87][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[88][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[88][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[89][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[89][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[90][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[90][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[91][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[91][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[92][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[92][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[93][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[93][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[94][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[94][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[95][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[95][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[96][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[96][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[97][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[97][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[98][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[98][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[99][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[99][0]               ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[100][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[100][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[101][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[101][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[102][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[102][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[103][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[103][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[104][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[104][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[105][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[105][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[106][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[106][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[107][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[107][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[108][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[108][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[109][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[109][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[110][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[110][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[111][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[111][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[112][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[112][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[113][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[113][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[114][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[114][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[115][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[115][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[116][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[116][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[117][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[117][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[118][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[118][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[119][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[119][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[120][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[120][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[121][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[121][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[122][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[122][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[123][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[123][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[124][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[124][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[125][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[125][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[126][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[126][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p2_snakeX[127][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[127][0]              ; Stuck at GND due to stuck port data_in           ;
+; start:go|p1_snakeX[127][9]              ; Lost fanout                                      ;
+; start:go|p1_snakeX[127][8]              ; Lost fanout                                      ;
+; start:go|p1_snakeX[127][7]              ; Lost fanout                                      ;
+; start:go|p1_snakeX[127][6]              ; Lost fanout                                      ;
+; start:go|p1_snakeX[127][5]              ; Lost fanout                                      ;
+; start:go|p1_snakeX[127][4]              ; Lost fanout                                      ;
+; start:go|p1_snakeX[127][3]              ; Lost fanout                                      ;
+; start:go|p1_snakeX[127][2]              ; Lost fanout                                      ;
+; start:go|p1_snakeX[127][1]              ; Lost fanout                                      ;
+; start:go|p1_snakeY[127][8]              ; Lost fanout                                      ;
+; start:go|p1_snakeY[127][7]              ; Lost fanout                                      ;
+; start:go|p1_snakeY[127][6]              ; Lost fanout                                      ;
+; start:go|p1_snakeY[127][5]              ; Lost fanout                                      ;
+; start:go|p1_snakeY[127][4]              ; Lost fanout                                      ;
+; start:go|p1_snakeY[127][3]              ; Lost fanout                                      ;
+; start:go|p1_snakeY[127][2]              ; Lost fanout                                      ;
+; start:go|p1_snakeY[127][1]              ; Lost fanout                                      ;
+; start:go|p2_snakeX[127][9]              ; Lost fanout                                      ;
+; start:go|p2_snakeX[127][8]              ; Lost fanout                                      ;
+; start:go|p2_snakeX[127][7]              ; Lost fanout                                      ;
+; start:go|p2_snakeX[127][6]              ; Lost fanout                                      ;
+; start:go|p2_snakeX[127][5]              ; Lost fanout                                      ;
+; start:go|p2_snakeX[127][4]              ; Lost fanout                                      ;
+; start:go|p2_snakeX[127][3]              ; Lost fanout                                      ;
+; start:go|p2_snakeX[127][2]              ; Lost fanout                                      ;
+; start:go|p2_snakeX[127][1]              ; Lost fanout                                      ;
+; start:go|p2_snakeY[127][8]              ; Lost fanout                                      ;
+; start:go|p2_snakeY[127][7]              ; Lost fanout                                      ;
+; start:go|p2_snakeY[127][6]              ; Lost fanout                                      ;
+; start:go|p2_snakeY[127][5]              ; Lost fanout                                      ;
+; start:go|p2_snakeY[127][4]              ; Lost fanout                                      ;
+; start:go|p2_snakeY[127][3]              ; Lost fanout                                      ;
+; start:go|p2_snakeY[127][2]              ; Lost fanout                                      ;
+; start:go|p2_snakeY[127][1]              ; Lost fanout                                      ;
+; start:go|p1_size[0]                     ; Merged with start:go|VGA_gen:gen|incrementerX[0] ;
+; Total Number of Removed Registers = 576 ;                                                  ;
++-----------------------------------------+--------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                ;
++--------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name            ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++--------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; start:go|p2_snakeX[0][0] ; Stuck at GND              ; start:go|p2_snakeX[1][0], start:go|p2_snakeX[2][0], start:go|p2_snakeX[3][0],       ;
+;                          ; due to stuck port data_in ; start:go|p2_snakeX[4][0], start:go|p2_snakeX[5][0], start:go|p2_snakeX[6][0],       ;
+;                          ;                           ; start:go|p2_snakeX[7][0], start:go|p2_snakeX[8][0], start:go|p2_snakeX[9][0],       ;
+;                          ;                           ; start:go|p2_snakeX[10][0], start:go|p2_snakeX[11][0], start:go|p2_snakeX[12][0],    ;
+;                          ;                           ; start:go|p2_snakeX[13][0], start:go|p2_snakeX[14][0], start:go|p2_snakeX[15][0],    ;
+;                          ;                           ; start:go|p2_snakeX[16][0], start:go|p2_snakeX[17][0], start:go|p2_snakeX[18][0],    ;
+;                          ;                           ; start:go|p2_snakeX[19][0], start:go|p2_snakeX[20][0], start:go|p2_snakeX[21][0],    ;
+;                          ;                           ; start:go|p2_snakeX[22][0], start:go|p2_snakeX[23][0], start:go|p2_snakeX[24][0],    ;
+;                          ;                           ; start:go|p2_snakeX[25][0], start:go|p2_snakeX[26][0], start:go|p2_snakeX[27][0],    ;
+;                          ;                           ; start:go|p2_snakeX[28][0], start:go|p2_snakeX[29][0], start:go|p2_snakeX[30][0],    ;
+;                          ;                           ; start:go|p2_snakeX[31][0], start:go|p2_snakeX[32][0], start:go|p2_snakeX[33][0],    ;
+;                          ;                           ; start:go|p2_snakeX[34][0], start:go|p2_snakeX[35][0], start:go|p2_snakeX[36][0],    ;
+;                          ;                           ; start:go|p2_snakeX[37][0], start:go|p2_snakeX[38][0], start:go|p2_snakeX[39][0],    ;
+;                          ;                           ; start:go|p2_snakeX[40][0], start:go|p2_snakeX[41][0], start:go|p2_snakeX[42][0],    ;
+;                          ;                           ; start:go|p2_snakeX[43][0], start:go|p2_snakeX[44][0], start:go|p2_snakeX[45][0],    ;
+;                          ;                           ; start:go|p2_snakeX[46][0], start:go|p2_snakeX[47][0], start:go|p2_snakeX[48][0],    ;
+;                          ;                           ; start:go|p2_snakeX[49][0], start:go|p2_snakeX[50][0], start:go|p2_snakeX[51][0],    ;
+;                          ;                           ; start:go|p2_snakeX[52][0], start:go|p2_snakeX[53][0], start:go|p2_snakeX[54][0],    ;
+;                          ;                           ; start:go|p2_snakeX[55][0], start:go|p2_snakeX[56][0], start:go|p2_snakeX[57][0],    ;
+;                          ;                           ; start:go|p2_snakeX[58][0], start:go|p2_snakeX[59][0], start:go|p2_snakeX[60][0],    ;
+;                          ;                           ; start:go|p2_snakeX[61][0], start:go|p2_snakeX[62][0], start:go|p2_snakeX[63][0],    ;
+;                          ;                           ; start:go|p2_snakeX[64][0], start:go|p2_snakeX[65][0], start:go|p2_snakeX[66][0],    ;
+;                          ;                           ; start:go|p2_snakeX[67][0], start:go|p2_snakeX[68][0], start:go|p2_snakeX[69][0],    ;
+;                          ;                           ; start:go|p2_snakeX[70][0], start:go|p2_snakeX[71][0], start:go|p2_snakeX[72][0],    ;
+;                          ;                           ; start:go|p2_snakeX[73][0], start:go|p2_snakeX[74][0], start:go|p2_snakeX[75][0],    ;
+;                          ;                           ; start:go|p2_snakeX[76][0], start:go|p2_snakeX[77][0], start:go|p2_snakeX[78][0],    ;
+;                          ;                           ; start:go|p2_snakeX[79][0], start:go|p2_snakeX[80][0], start:go|p2_snakeX[81][0],    ;
+;                          ;                           ; start:go|p2_snakeX[82][0], start:go|p2_snakeX[83][0], start:go|p2_snakeX[84][0],    ;
+;                          ;                           ; start:go|p2_snakeX[85][0], start:go|p2_snakeX[86][0], start:go|p2_snakeX[87][0],    ;
+;                          ;                           ; start:go|p2_snakeX[88][0], start:go|p2_snakeX[89][0], start:go|p2_snakeX[90][0],    ;
+;                          ;                           ; start:go|p2_snakeX[91][0], start:go|p2_snakeX[92][0], start:go|p2_snakeX[93][0],    ;
+;                          ;                           ; start:go|p2_snakeX[94][0], start:go|p2_snakeX[95][0], start:go|p2_snakeX[96][0],    ;
+;                          ;                           ; start:go|p2_snakeX[97][0], start:go|p2_snakeX[98][0], start:go|p2_snakeX[99][0],    ;
+;                          ;                           ; start:go|p2_snakeX[100][0], start:go|p2_snakeX[101][0], start:go|p2_snakeX[102][0], ;
+;                          ;                           ; start:go|p2_snakeX[103][0], start:go|p2_snakeX[104][0], start:go|p2_snakeX[105][0], ;
+;                          ;                           ; start:go|p2_snakeX[106][0], start:go|p2_snakeX[107][0], start:go|p2_snakeX[108][0], ;
+;                          ;                           ; start:go|p2_snakeX[109][0], start:go|p2_snakeX[110][0], start:go|p2_snakeX[111][0], ;
+;                          ;                           ; start:go|p2_snakeX[112][0], start:go|p2_snakeX[113][0], start:go|p2_snakeX[114][0], ;
+;                          ;                           ; start:go|p2_snakeX[115][0], start:go|p2_snakeX[116][0], start:go|p2_snakeX[117][0], ;
+;                          ;                           ; start:go|p2_snakeX[118][0], start:go|p2_snakeX[119][0], start:go|p2_snakeX[120][0], ;
+;                          ;                           ; start:go|p2_snakeX[121][0], start:go|p2_snakeX[122][0], start:go|p2_snakeX[123][0], ;
+;                          ;                           ; start:go|p2_snakeX[124][0], start:go|p2_snakeX[125][0], start:go|p2_snakeX[126][0], ;
+;                          ;                           ; start:go|p2_snakeX[127][0]                                                          ;
+; start:go|p1_snakeX[0][0] ; Stuck at GND              ; start:go|p1_snakeX[1][0], start:go|p1_snakeX[2][0], start:go|p1_snakeX[3][0],       ;
+;                          ; due to stuck port data_in ; start:go|p1_snakeX[4][0], start:go|p1_snakeX[5][0], start:go|p1_snakeX[6][0],       ;
+;                          ;                           ; start:go|p1_snakeX[7][0], start:go|p1_snakeX[8][0], start:go|p1_snakeX[9][0],       ;
+;                          ;                           ; start:go|p1_snakeX[10][0], start:go|p1_snakeX[11][0], start:go|p1_snakeX[12][0],    ;
+;                          ;                           ; start:go|p1_snakeX[13][0], start:go|p1_snakeX[14][0], start:go|p1_snakeX[15][0],    ;
+;                          ;                           ; start:go|p1_snakeX[16][0], start:go|p1_snakeX[17][0], start:go|p1_snakeX[18][0],    ;
+;                          ;                           ; start:go|p1_snakeX[19][0], start:go|p1_snakeX[20][0], start:go|p1_snakeX[21][0],    ;
+;                          ;                           ; start:go|p1_snakeX[22][0], start:go|p1_snakeX[23][0], start:go|p1_snakeX[24][0],    ;
+;                          ;                           ; start:go|p1_snakeX[25][0], start:go|p1_snakeX[26][0], start:go|p1_snakeX[27][0],    ;
+;                          ;                           ; start:go|p1_snakeX[28][0], start:go|p1_snakeX[29][0], start:go|p1_snakeX[30][0],    ;
+;                          ;                           ; start:go|p1_snakeX[31][0], start:go|p1_snakeX[32][0], start:go|p1_snakeX[33][0],    ;
+;                          ;                           ; start:go|p1_snakeX[34][0], start:go|p1_snakeX[35][0], start:go|p1_snakeX[36][0],    ;
+;                          ;                           ; start:go|p1_snakeX[37][0], start:go|p1_snakeX[38][0], start:go|p1_snakeX[39][0],    ;
+;                          ;                           ; start:go|p1_snakeX[40][0], start:go|p1_snakeX[41][0], start:go|p1_snakeX[42][0],    ;
+;                          ;                           ; start:go|p1_snakeX[43][0], start:go|p1_snakeX[44][0], start:go|p1_snakeX[45][0],    ;
+;                          ;                           ; start:go|p1_snakeX[46][0], start:go|p1_snakeX[47][0], start:go|p1_snakeX[48][0],    ;
+;                          ;                           ; start:go|p1_snakeX[49][0], start:go|p1_snakeX[50][0], start:go|p1_snakeX[51][0],    ;
+;                          ;                           ; start:go|p1_snakeX[52][0], start:go|p1_snakeX[53][0], start:go|p1_snakeX[54][0],    ;
+;                          ;                           ; start:go|p1_snakeX[55][0], start:go|p1_snakeX[56][0], start:go|p1_snakeX[57][0],    ;
+;                          ;                           ; start:go|p1_snakeX[58][0], start:go|p1_snakeX[59][0], start:go|p1_snakeX[60][0],    ;
+;                          ;                           ; start:go|p1_snakeX[61][0], start:go|p1_snakeX[62][0], start:go|p1_snakeX[63][0],    ;
+;                          ;                           ; start:go|p1_snakeX[64][0], start:go|p1_snakeX[65][0], start:go|p1_snakeX[66][0],    ;
+;                          ;                           ; start:go|p1_snakeX[67][0], start:go|p1_snakeX[68][0], start:go|p1_snakeX[69][0],    ;
+;                          ;                           ; start:go|p1_snakeX[70][0], start:go|p1_snakeX[71][0], start:go|p1_snakeX[72][0],    ;
+;                          ;                           ; start:go|p1_snakeX[73][0], start:go|p1_snakeX[74][0], start:go|p1_snakeX[75][0],    ;
+;                          ;                           ; start:go|p1_snakeX[76][0], start:go|p1_snakeX[77][0], start:go|p1_snakeX[78][0],    ;
+;                          ;                           ; start:go|p1_snakeX[79][0], start:go|p1_snakeX[80][0], start:go|p1_snakeX[81][0],    ;
+;                          ;                           ; start:go|p1_snakeX[82][0], start:go|p1_snakeX[83][0], start:go|p1_snakeX[84][0],    ;
+;                          ;                           ; start:go|p1_snakeX[85][0], start:go|p1_snakeX[86][0], start:go|p1_snakeX[87][0],    ;
+;                          ;                           ; start:go|p1_snakeX[88][0], start:go|p1_snakeX[89][0], start:go|p1_snakeX[90][0],    ;
+;                          ;                           ; start:go|p1_snakeX[91][0], start:go|p1_snakeX[92][0], start:go|p1_snakeX[93][0],    ;
+;                          ;                           ; start:go|p1_snakeX[94][0], start:go|p1_snakeX[95][0], start:go|p1_snakeX[96][0],    ;
+;                          ;                           ; start:go|p1_snakeX[97][0], start:go|p1_snakeX[98][0], start:go|p1_snakeX[99][0],    ;
+;                          ;                           ; start:go|p1_snakeX[100][0], start:go|p1_snakeX[101][0], start:go|p1_snakeX[102][0], ;
+;                          ;                           ; start:go|p1_snakeX[103][0], start:go|p1_snakeX[104][0], start:go|p1_snakeX[105][0], ;
+;                          ;                           ; start:go|p1_snakeX[106][0], start:go|p1_snakeX[107][0], start:go|p1_snakeX[108][0], ;
+;                          ;                           ; start:go|p1_snakeX[109][0], start:go|p1_snakeX[110][0], start:go|p1_snakeX[111][0], ;
+;                          ;                           ; start:go|p1_snakeX[112][0], start:go|p1_snakeX[113][0], start:go|p1_snakeX[114][0], ;
+;                          ;                           ; start:go|p1_snakeX[115][0], start:go|p1_snakeX[116][0], start:go|p1_snakeX[117][0], ;
+;                          ;                           ; start:go|p1_snakeX[118][0], start:go|p1_snakeX[119][0], start:go|p1_snakeX[120][0], ;
+;                          ;                           ; start:go|p1_snakeX[121][0], start:go|p1_snakeX[122][0], start:go|p1_snakeX[123][0], ;
+;                          ;                           ; start:go|p1_snakeX[124][0], start:go|p1_snakeX[125][0], start:go|p1_snakeX[126][0], ;
+;                          ;                           ; start:go|p1_snakeX[127][0]                                                          ;
++--------------------------+---------------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 4430  ;
+; Number of registers using Synchronous Clear  ; 46    ;
+; Number of registers using Synchronous Load   ; 52    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 4338  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[64][3]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[32][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[16][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[8][6]               ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[4][7]               ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[2][2]               ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[1][1]               ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[126][4]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[125][5]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[124][2]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[123][9]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[122][1]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[121][3]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[120][1]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[119][5]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[118][6]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[117][6]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[116][5]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[115][2]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[114][6]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[113][6]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[112][2]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[111][3]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[110][9]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[109][2]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[108][8]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[107][8]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[106][1]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[105][2]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[104][9]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[103][3]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[102][8]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[101][5]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[100][6]             ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[99][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[98][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[97][7]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[96][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[95][3]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[94][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[93][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[92][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[91][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[90][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[89][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[88][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[87][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[86][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[85][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[84][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[83][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[82][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[81][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[80][3]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[79][6]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[78][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[77][7]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[76][7]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[75][3]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[74][7]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[73][6]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[72][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[71][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[70][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[69][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[68][4]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[67][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[66][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[65][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[63][4]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[62][5]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[61][6]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[60][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[59][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[58][3]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[57][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[56][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[55][7]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[54][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[53][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[52][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[51][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[50][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[49][7]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[48][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[47][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[46][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[45][3]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[44][6]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[43][3]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[42][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[41][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[40][7]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[39][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[38][3]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[37][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[36][3]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[35][7]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[34][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[33][3]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[31][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[30][7]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[29][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[28][7]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[27][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[26][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[25][6]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[24][7]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[23][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[22][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[21][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[20][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[19][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[18][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[17][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[15][9]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[14][2]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[13][3]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[12][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[11][8]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[10][1]              ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeY[9][8]               ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p2_snakeX[7][1]               ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[6][7]               ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeX[5][9]               ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 34 LEs               ; 34 LEs                 ; Yes        ; |final|start:go|p1_snakeY[3][2]               ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |final|start:go|outclock                      ;
+; 5:1                ; 28 bits   ; 84 LEs        ; 56 LEs               ; 28 LEs                 ; Yes        ; |final|RateDivider:rd10|Q[17]                 ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 8 LEs                ; 32 LEs                 ; Yes        ; |final|start:go|snakeFSM:p1_keyIn|movement[1] ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 8 LEs                ; 32 LEs                 ; Yes        ; |final|start:go|snakeFSM:keyIn|movement[1]    ;
+; 17:1               ; 9 bits    ; 99 LEs        ; 18 LEs               ; 81 LEs                 ; Yes        ; |final|start:go|p1_snakeX[0][8]               ;
+; 17:1               ; 8 bits    ; 88 LEs        ; 16 LEs               ; 72 LEs                 ; Yes        ; |final|start:go|p1_snakeY[0][1]               ;
+; 17:1               ; 9 bits    ; 99 LEs        ; 18 LEs               ; 81 LEs                 ; Yes        ; |final|start:go|p2_snakeX[0][8]               ;
+; 17:1               ; 8 bits    ; 88 LEs        ; 16 LEs               ; 72 LEs                 ; Yes        ; |final|start:go|p2_snakeY[0][2]               ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |final|start:go|VGA_R[5]                      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |final|start:go|VGA_B                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "RateDivider:rd10" ;
++-----------+-------+----------+---------------+
+; Port      ; Type  ; Severity ; Details       ;
++-----------+-------+----------+---------------+
+; d[23..19] ; Input ; Info     ; Stuck at VCC  ;
+; d[15..12] ; Input ; Info     ; Stuck at VCC  ;
+; d[6..0]   ; Input ; Info     ; Stuck at VCC  ;
+; d[27..26] ; Input ; Info     ; Stuck at GND  ;
+; d[11..7]  ; Input ; Info     ; Stuck at GND  ;
+; d[25]     ; Input ; Info     ; Stuck at VCC  ;
+; d[24]     ; Input ; Info     ; Stuck at GND  ;
+; d[18]     ; Input ; Info     ; Stuck at GND  ;
+; d[17]     ; Input ; Info     ; Stuck at VCC  ;
+; d[16]     ; Input ; Info     ; Stuck at GND  ;
++-----------+-------+----------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "start:go|snakeFSM:p1_keyIn"                                                          ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; reset ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 76                          ;
+; cycloneiii_ff         ; 4430                        ;
+;     ENA               ; 4304                        ;
+;     ENA SCLR          ; 10                          ;
+;     ENA SLD           ; 24                          ;
+;     SCLR              ; 8                           ;
+;     SCLR SLD          ; 28                          ;
+;     plain             ; 56                          ;
+; cycloneiii_lcell_comb ; 19147                       ;
+;     arith             ; 11807                       ;
+;         2 data inputs ; 3400                        ;
+;         3 data inputs ; 8407                        ;
+;     normal            ; 7340                        ;
+;         0 data inputs ; 510                         ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 1106                        ;
+;         3 data inputs ; 4728                        ;
+;         4 data inputs ; 979                         ;
+;                       ;                             ;
+; Max LUT depth         ; 47.50                       ;
+; Average LUT depth     ; 22.42                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:25     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+    Info: Processing started: Tue Mar 28 20:19:33 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off final -c final
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Warning (10463): Verilog HDL Declaration warning at mar14_7_44pm.v(1): "final" is SystemVerilog-2005 keyword File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 1
+Warning (10238): Verilog Module Declaration warning at mar14_7_44pm.v(1): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "final" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 1
+Info (12021): Found 9 design units, including 9 entities, in source file mar14_7_44pm.v
+    Info (12023): Found entity 1: final File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 1
+    Info (12023): Found entity 2: start File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 56
+    Info (12023): Found entity 3: clk_reduce File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 332
+    Info (12023): Found entity 4: VGA_gen File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 347
+    Info (12023): Found entity 5: updateClk File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 403
+    Info (12023): Found entity 6: snakeFSM File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 423
+    Info (12023): Found entity 7: hex_decoder File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 446
+    Info (12023): Found entity 8: DisplayCounter File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 471
+    Info (12023): Found entity 9: RateDivider File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 486
+Warning (10037): Verilog HDL or VHDL warning at mar14_7_44pm.v(257): conditional expression evaluates to a constant File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 257
+Info (12127): Elaborating entity "final" for the top level hierarchy
+Info (12128): Elaborating entity "start" for hierarchy "start:go" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 35
+Warning (10036): Verilog HDL or VHDL warning at mar14_7_44pm.v(97): object "snakeSizeMax" assigned a value but never read File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 97
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(160): truncated value with size 32 to match size of target (9) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 160
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(161): truncated value with size 32 to match size of target (10) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 161
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(162): truncated value with size 32 to match size of target (9) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 162
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(163): truncated value with size 32 to match size of target (10) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 163
+Info (10264): Verilog HDL Case Statement information at mar14_7_44pm.v(159): all case item expressions in this case statement are onehot File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 159
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(173): truncated value with size 32 to match size of target (9) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 173
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(209): truncated value with size 32 to match size of target (9) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 209
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(210): truncated value with size 32 to match size of target (10) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 210
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(211): truncated value with size 32 to match size of target (9) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 211
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(212): truncated value with size 32 to match size of target (10) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 212
+Info (10264): Verilog HDL Case Statement information at mar14_7_44pm.v(208): all case item expressions in this case statement are onehot File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 208
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(222): truncated value with size 32 to match size of target (9) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 222
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(259): truncated value with size 32 to match size of target (7) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 259
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(260): truncated value with size 32 to match size of target (7) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 260
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(278): truncated value with size 32 to match size of target (4) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 278
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(283): truncated value with size 32 to match size of target (4) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 283
+Info (12128): Elaborating entity "clk_reduce" for hierarchy "start:go|clk_reduce:reduce1" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 105
+Info (12128): Elaborating entity "VGA_gen" for hierarchy "start:go|VGA_gen:gen" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 115
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(371): truncated value with size 32 to match size of target (10) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 371
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(382): truncated value with size 32 to match size of target (10) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 382
+Info (12128): Elaborating entity "snakeFSM" for hierarchy "start:go|snakeFSM:p1_keyIn" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 123
+Warning (10036): Verilog HDL or VHDL warning at mar14_7_44pm.v(431): object "recordNext" assigned a value but never read File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 431
+Warning (10036): Verilog HDL or VHDL warning at mar14_7_44pm.v(432): object "increment" assigned a value but never read File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 432
+Info (10264): Verilog HDL Case Statement information at mar14_7_44pm.v(436): all case item expressions in this case statement are onehot File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 436
+Info (12128): Elaborating entity "updateClk" for hierarchy "start:go|updateClk:UPDATE" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 136
+Warning (10230): Verilog HDL assignment warning at mar14_7_44pm.v(411): truncated value with size 32 to match size of target (22) File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 411
+Info (12128): Elaborating entity "RateDivider" for hierarchy "RateDivider:rd10" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 38
+Info (12128): Elaborating entity "DisplayCounter" for hierarchy "DisplayCounter:dc0" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 49
+Info (12128): Elaborating entity "hex_decoder" for hierarchy "hex_decoder:hx0" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 50
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 34 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file /cmshome/chenbrod/Desktop/final/output_files/final.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 20 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[0]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[1]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[2]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[3]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[4]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[5]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[6]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[7]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[10]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[11]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[12]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[13]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[14]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[15]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[16]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[17]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 5
+    Warning (15610): No output dependent on input pin "KEY[0]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 7
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 7
+    Warning (15610): No output dependent on input pin "KEY[2]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 7
+    Warning (15610): No output dependent on input pin "KEY[3]" File: /cmshome/chenbrod/Desktop/final/mar14_7_44pm.v Line: 7
+Info (21057): Implemented 19224 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 34 input pins
+    Info (21059): Implemented 42 output pins
+    Info (21061): Implemented 19148 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 45 warnings
+    Info: Peak virtual memory: 1346 megabytes
+    Info: Processing ended: Tue Mar 28 20:20:11 2017
+    Info: Elapsed time: 00:00:38
+    Info: Total CPU time (on all processors): 00:00:48
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /cmshome/chenbrod/Desktop/final/output_files/final.map.smsg.
+
+
